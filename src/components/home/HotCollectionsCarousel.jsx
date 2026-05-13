@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import Skeleton from "../UI/Skeleton";
 
 const HotCollectionsCarousel = ({ items }) => {
   const options = {
@@ -30,7 +31,7 @@ const HotCollectionsCarousel = ({ items }) => {
           <div className="nft_coll">
             <div className="nft_wrap">
               {!item.nftImage ? (
-                <div className="skeleton-box img-fluid" style={{ width: "400px", height: "200px" }} />
+                <Skeleton width="400px" height="200px" />
               ) : (
                 <Link to="/item-details">
                   <img src={item.nftImage} className="lazy img-fluid" alt={item.title} />
@@ -39,7 +40,7 @@ const HotCollectionsCarousel = ({ items }) => {
             </div>
             <div className="nft_coll_pp">
               {!item.authorImage ? (
-                <div className="skeleton-box pp-coll" style={{ width: "60px", height: "60px", borderRadius: "50%" }} />
+                <Skeleton width="60px" height="60px" borderRadius="50%" />
               ) : (
                 <Link to="/author">
                   <img className="lazy pp-coll" src={item.authorImage} alt="" />
@@ -50,8 +51,8 @@ const HotCollectionsCarousel = ({ items }) => {
             <div className="nft_coll_info">
               {!item.title ? (
                 <>
-                <div className="skeleton-box" style={{ width: "120px", height: "20px", paddingBottom: "5px" }} />
-                <br />
+                  <Skeleton width="120px" height="20px" />
+                  <br />
                 </>
               ) : (
                 <Link to="/explore">
@@ -59,7 +60,7 @@ const HotCollectionsCarousel = ({ items }) => {
                 </Link>
               )}
               {!item.code ? (
-                <div className="skeleton-box" style={{ width: "80px", height: "20px" }} />
+                <Skeleton width="80px" height="20px" />
               ) : (
                 <span>ERC-{item.code}</span>
               )}
