@@ -30,7 +30,7 @@ const HotCollectionsCarousel = ({ items }) => {
         <div key={index}>
           <div className="nft_coll">
             <div className="nft_wrap">
-              {!item.nftImage ? (
+              {!item ? (
                 <Skeleton width="400px" height="200px" />
               ) : (
                 <Link to="/item-details">
@@ -39,7 +39,7 @@ const HotCollectionsCarousel = ({ items }) => {
               )}
             </div>
             <div className="nft_coll_pp">
-              {!item.authorImage ? (
+              {!item ? (
                 <Skeleton width="60px" height="60px" borderRadius="50%" />
               ) : (
                 <Link to="/author">
@@ -49,7 +49,7 @@ const HotCollectionsCarousel = ({ items }) => {
               <i className="fa fa-check"></i>
             </div>
             <div className="nft_coll_info">
-              {!item.title ? (
+              {!item ? (
                 <>
                   <Skeleton width="120px" height="20px" />
                   <br />
@@ -59,7 +59,7 @@ const HotCollectionsCarousel = ({ items }) => {
                   <h4>{item.title}</h4>
                 </Link>
               )}
-              {!item.code ? (
+              {!item ? (
                 <Skeleton width="80px" height="20px" />
               ) : (
                 <span>ERC-{item.code}</span>
