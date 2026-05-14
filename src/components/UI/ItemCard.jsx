@@ -9,17 +9,14 @@ const ItemCard = ({ item, index, page }) => {
   if (page === "explore") {
     myClass = "d-item col-lg-3 col-md-6 col-sm-6 col-xs-12";
     myStyle = { display: "block", backgroundSize: "cover" };
+  } else if (page === "author") {
+    myClass = "col-lg-3 col-md-6 col-sm-6 col-xs-12";
   }
   return (
     <div key={index} className={`${myClass}`} style={myStyle}>
       <div className="nft__item">
         <div className="author_list_pp">
-          <Link
-            to={`/author/${item ? item.authorId : ""}`}
-            data-bs-toggle="tooltip"
-            data-bs-placement="top"
-            title="Creator: Monica Lucas"
-          >
+          <Link to={`/author/${item ? item.authorId : ""}`}>
             {!item ? (
               <Skeleton width="50px" height="50px" borderRadius="50%" />
             ) : (
@@ -28,7 +25,7 @@ const ItemCard = ({ item, index, page }) => {
             <i className="fa fa-check"></i>
           </Link>
         </div>
-        {item.expiryDate && <CountdownTimer targetDate={item.expiryDate} />}
+        {page !== "author" && item.expiryDate && <CountdownTimer targetDate={item.expiryDate} />}
 
         {!item ? (
           <Skeleton width="100%" height="350px" />

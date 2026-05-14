@@ -42,7 +42,7 @@ const HotCollectionsCarousel = ({ items }) => {
               {!item ? (
                 <Skeleton width="60px" height="60px" borderRadius="50%" />
               ) : (
-                <Link to="/author">
+                <Link to={`/author/${item.authorId}`}>
                   <img className="lazy pp-coll" src={item.authorImage} alt="" />
                 </Link>
               )}
