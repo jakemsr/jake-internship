@@ -33,7 +33,7 @@ const HotCollectionsCarousel = ({ items }) => {
               {!item ? (
                 <Skeleton width="400px" height="200px" />
               ) : (
-                <Link to="/item-details">
+                <Link to={`/item-details/${item.nftId}`}>
                   <img src={item.nftImage} className="lazy img-fluid" alt={item.title} />
                 </Link>
               )}
