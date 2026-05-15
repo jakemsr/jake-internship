@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import HotCollectionsCarousel from "./HotCollectionsCarousel";
 
 const HotCollections = () => {
@@ -17,6 +19,13 @@ const HotCollections = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    AOS.init({
+      offset: 50,
+      once: true,
+      easing: 'ease-in',
+      duration: 500,
+    });
+
     async function getCollection() {
       try {
         const response = await axios.get('https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections');
@@ -32,7 +41,7 @@ const HotCollections = () => {
   return (
     <section id="section-collections" className="no-bottom">
       <div className="container">
-        <div className="row">
+        <div className="row" data-aos="fade">
           <div className="col-lg-12">
             <div className="text-center">
               <h2>Hot Collections</h2>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import AuthorImage from "../../images/author_thumbnail.jpg";
-import nftImage from "../../images/nftImage.jpg";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import NewItemsCarousel from "./NewItemsCarousel";
 import axios from "axios";
 
@@ -15,6 +14,13 @@ const NewItems = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    AOS.init({
+      offset: 50,
+      once: true,
+      easing: 'ease-in',
+      duration: 500,
+    });
+
     async function getNewItems() {
       try {
         const response = await axios.get("https://us-central1-nft-cloud-functions.cloudfunctions.net/newItems");
@@ -30,7 +36,7 @@ const NewItems = () => {
   return (
     <section id="section-items" className="no-bottom">
       <div className="container">
-        <div className="row">
+        <div className="row" data-aos="fade">
           <div className="col-lg-12">
             <div className="text-center">
               <h2>New Items</h2>

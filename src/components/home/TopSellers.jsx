@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Skeleton from "../UI/Skeleton";
 
 const TopSellers = () => {
@@ -11,6 +13,13 @@ const TopSellers = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    AOS.init({
+      offset: 50,
+      once: true,
+      easing: 'ease-in',
+      duration: 500,
+    });
+
     async function getTopSellers() {
       try {
         const response = await axios.get("https://us-central1-nft-cloud-functions.cloudfunctions.net/topSellers");
@@ -33,7 +42,7 @@ const TopSellers = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div className="col-md-12">
+          <div className="col-md-12" data-aos="fade">
             <ol className="author_list">
               {topSellers.map((item, index) => (
                 <li key={index}>
