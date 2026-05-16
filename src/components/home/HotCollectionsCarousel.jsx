@@ -4,7 +4,7 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import Skeleton from "../UI/Skeleton";
 
-const HotCollectionsCarousel = ({ items }) => {
+const HotCollectionsCarousel = ({ items, loading }) => {
   const options = {
     loop: true,
     margin: 10,

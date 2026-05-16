@@ -4,7 +4,7 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import ItemCard from '../UI/ItemCard';
 
-const NewItemsCarousel = ({ items }) => {
+const NewItemsCarousel = ({ items, loading }) => {
   const options = {
     loop: true,
     margin: 10,
@@ -27,7 +27,7 @@ const NewItemsCarousel = ({ items }) => {
   return (
     <OwlCarousel {...options}>
       {items.map((item, index) => (
-        <ItemCard key={index} item={item} index={index} page="newItems" />
+        <ItemCard key={index} item={item} index={index} page="newItems" loading={loading} />
       ))}
     </OwlCarousel>
   );

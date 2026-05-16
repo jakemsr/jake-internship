@@ -43,7 +43,7 @@ const NewItems = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <NewItemsCarousel items={newItems} />
+          <NewItemsCarousel items={newItems} loading={loading} />
         </div>
       </div>
     </section>

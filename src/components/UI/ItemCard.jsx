@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Skeleton from "./Skeleton";
 import CountdownTimer from './CountdownTimer';
 
-const ItemCard = ({ item, index, page }) => {
+const ItemCard = ({ item, index, page, loading }) => {
   let myClass = "";
   let myStyle = {};
   if (page === "explore") {
@@ -36,6 +36,7 @@ const ItemCard = ({ item, index, page }) => {
                 <button>Buy Now</button>
                 <div className="nft__item_share">
                   <h4>Share</h4>
+                  {/* these empty hrefs cause warnings/build errors
                   <a href="" target="_blank" rel="noreferrer">
                     <i className="fa fa-facebook fa-lg"></i>
                   </a>
@@ -45,6 +46,7 @@ const ItemCard = ({ item, index, page }) => {
                   <a href="">
                     <i className="fa fa-envelope fa-lg"></i>
                   </a>
+                  */}
                 </div>
               </div>
             </div>

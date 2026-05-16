@@ -48,7 +48,7 @@ const TopSellers = () => {
                 <li key={index}>
                   <div className="author_list_pp">
                     <Link to={`/author/${seller.authorId}`}>
-                      {!seller ? (
+                      {loading || !seller ? (
                         <Skeleton width="50px" height="50px" borderRadius="50%" />
                       ) : (
                         <img
@@ -61,13 +61,13 @@ const TopSellers = () => {
                     </Link>
                   </div>
                   <div className="author_list_info">
-                    {!seller ? (
+                    {loading || !seller ? (
                       <Skeleton width="100px" height="20px" />
                     ) : (
                       <Link to={`/author/${seller.authorId}`}>{seller.authorName}</Link>
                     )}
                     <span>
-                      {!seller ? (
+                      {loading || !seller ? (
                         <Skeleton width="40px" height="20px" />
                       ) : (
                         <>
