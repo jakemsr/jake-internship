@@ -38,7 +38,7 @@ const ExploreItems = () => {
         </select>
       </div>
       {items.slice(0, numberToDisplay).map((item, index) => (
-        <ItemCard key={index} item={item} index={index} page="explore" />
+        <ItemCard key={index} item={item} index={index} page="explore" loading={loading} />
       ))}
       {numberToDisplay < items.length && (
       <div className="col-md-12 text-center">

@@ -48,7 +48,7 @@ const HotCollections = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <HotCollectionsCarousel items={collection} />
+          <HotCollectionsCarousel items={collection} loading={loading} />
         </div>
       </div>
     </section>
