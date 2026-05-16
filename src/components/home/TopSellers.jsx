@@ -44,16 +44,16 @@ const TopSellers = () => {
           </div>
           <div className="col-md-12" data-aos="fade">
             <ol className="author_list">
-              {topSellers.map((item, index) => (
+              {topSellers.map((seller, index) => (
                 <li key={index}>
                   <div className="author_list_pp">
-                    <Link to={`/author/${item.authorId}`}>
-                      {!item.authorImage ? (
+                    <Link to={`/author/${seller.authorId}`}>
+                      {!seller ? (
                         <Skeleton width="50px" height="50px" borderRadius="50%" />
                       ) : (
                         <img
                           className="lazy pp-author"
-                          src={item.authorImage}
+                          src={seller.authorImage}
                           alt=""
                         />
                       )}
@@ -61,17 +61,17 @@ const TopSellers = () => {
                     </Link>
                   </div>
                   <div className="author_list_info">
-                    {!item.authorName ? (
+                    {!seller ? (
                       <Skeleton width="100px" height="20px" />
                     ) : (
-                      <Link to={`/author/${item.authorId}`}>{item.authorName}</Link>
+                      <Link to={`/author/${seller.authorId}`}>{seller.authorName}</Link>
                     )}
                     <span>
-                      {!item.price ? (
+                      {!seller ? (
                         <Skeleton width="40px" height="20px" />
                       ) : (
                         <>
-                          {item.price} ETH
+                          {seller.price} ETH
                         </>
                       )}
                     </span>
